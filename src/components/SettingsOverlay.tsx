@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, User, Bell, Palette, Globe, Shield, CreditCard, Settings as SettingsIcon, Workflow, Plus, Trash2 } from 'lucide-react';
+import { X, User, Bell, Palette, Globe, Shield, CreditCard, Settings as SettingsIcon, Workflow, Plus, Trash2, LogOut } from 'lucide-react';
 import { useI18n } from '../lib/i18n';
 import { cn } from '../lib/utils';
 
@@ -15,6 +15,7 @@ export function SettingsOverlay({ isOpen, onClose }: { isOpen: boolean, onClose:
     { id: 'notifications', icon: Bell, label: t('Benachrichtigungen', 'Notifications') },
     { id: 'security', icon: Shield, label: t('Sicherheit', 'Security') },
     { id: 'billing', icon: CreditCard, label: t('Abrechnung', 'Billing') },
+    { id: 'logout', icon: LogOut, label: t('Abmelden', 'Log out') },
   ];
 
   return (
@@ -80,7 +81,7 @@ export function SettingsOverlay({ isOpen, onClose }: { isOpen: boolean, onClose:
 
                     <div className="flex items-center gap-6">
                       <div className="h-24 w-24 rounded-full bg-slate-900 flex items-center justify-center text-3xl font-bold text-white shadow-inner">
-                        AB
+                        GM
                       </div>
                       <div>
                         <button className="px-4 py-2 bg-white border border-slate-300 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors shadow-sm mb-2">
@@ -93,15 +94,15 @@ export function SettingsOverlay({ isOpen, onClose }: { isOpen: boolean, onClose:
                     <div className="grid grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="block text-sm font-medium text-slate-700">{t('Vorname', 'First name')}</label>
-                        <input type="text" defaultValue="Alex" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                        <input type="text" defaultValue="Gawain" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
                       </div>
                       <div className="space-y-2">
                         <label className="block text-sm font-medium text-slate-700">{t('Nachname', 'Last name')}</label>
-                        <input type="text" defaultValue="Broker" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                        <input type="text" defaultValue="MacMilan" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
                       </div>
                       <div className="space-y-2 col-span-2">
                         <label className="block text-sm font-medium text-slate-700">{t('E-Mail-Adresse', 'Email address')}</label>
-                        <input type="email" defaultValue="alex@artemis-gruppe.de" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
+                        <input type="email" defaultValue="gawain@iqdigi.com" className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500" />
                       </div>
                     </div>
 
@@ -227,6 +228,23 @@ export function SettingsOverlay({ isOpen, onClose }: { isOpen: boolean, onClose:
                     <p className="text-slate-500 max-w-sm">
                       {t('Dieser Einstellungsbereich befindet sich noch in Entwicklung und wird in Kürze freigeschaltet.', 'This settings area is still under development and will be unlocked soon.')}
                     </p>
+                  </div>
+                )}
+                {activeTab === 'logout' && (
+                  <div className="h-full flex flex-col items-center justify-center text-center animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-4">
+                      <LogOut className="w-8 h-8 text-orange-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{t('Abmelden', 'Log out')}</h3>
+                    <p className="text-slate-500 max-w-sm mb-6">
+                      {t('Du wirst abgemeldet und musst dich neu anmelden.', 'You will be logged out and need to sign in again.')}
+                    </p>
+                    <button
+                      onClick={() => { sessionStorage.removeItem('fininsure_auth'); window.location.reload(); }}
+                      className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-semibold transition-colors"
+                    >
+                      {t('Abmelden', 'Log out')}
+                    </button>
                   </div>
                 )}
               </div>

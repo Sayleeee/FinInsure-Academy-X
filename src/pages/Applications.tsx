@@ -17,16 +17,16 @@ interface Application {
 }
 
 const INITIAL_APPLICATIONS: Application[] = [
-  { id: 'a1', appNo: 'ANT-2026-001', customerName: 'TechNova Solutions GmbH', productName: 'Gewerbe & Cyber Risk', status: 'underwriting', premium: '€3,800/J', date: '2026-06-04', assignedBroker: 'Alex Broker' },
+  { id: 'a1', appNo: 'ANT-2026-001', customerName: 'TechNova Solutions GmbH', productName: 'Gewerbe & Cyber Risk', status: 'underwriting', premium: '€3,800/J', date: '2026-06-04', assignedBroker: 'Gawain MacMilan' },
   { id: 'a2', appNo: 'ANT-2026-002', customerName: 'Markus Weber', productName: 'Private Krankenversicherung (PKV Premium)', status: 'issued', premium: '€6,200/J', date: '2026-06-02', assignedBroker: 'Sarah Consultant' },
-  { id: 'a3', appNo: 'ANT-2026-003', customerName: 'Schmidt Handwerk', productName: 'Betriebshaftpflicht Komfort', status: 'awaiting_documents', premium: '€1,200/J', date: '2026-05-28', assignedBroker: 'Alex Broker' },
+  { id: 'a3', appNo: 'ANT-2026-003', customerName: 'Schmidt Handwerk', productName: 'Betriebshaftpflicht Komfort', status: 'awaiting_documents', premium: '€1,200/J', date: '2026-05-28', assignedBroker: 'Gawain MacMilan' },
   { id: 'a4', appNo: 'ANT-2026-004', customerName: 'Dr. Anna Müller', productName: 'D&O Versicherung Standard', status: 'submitted', premium: '€4,500/J', date: '2026-06-05', assignedBroker: 'Sarah Consultant' },
   { id: 'a5', appNo: 'ANT-2026-005', customerName: 'Logistics Pro KG', productName: 'Flotten-Kraftfahrt-Haftpflicht', status: 'rejected', premium: '€12,500/J', date: '2026-05-15', assignedBroker: 'John Administrator' },
   { id: 'a6', appNo: 'ANT-2026-006', customerName: 'Müller & Söhne GmbH', productName: 'Inhaltsversicherung', status: 'issued', premium: '€2,100/J', date: '2026-05-20', assignedBroker: 'Sarah Consultant' },
-  { id: 'a7', appNo: 'ANT-2026-007', customerName: 'Sabine Becker', productName: 'Berufsunfähigkeits-Schutz', status: 'underwriting', premium: '€1,800/J', date: '2026-06-01', assignedBroker: 'Alex Broker' },
+  { id: 'a7', appNo: 'ANT-2026-007', customerName: 'Sabine Becker', productName: 'Berufsunfähigkeits-Schutz', status: 'underwriting', premium: '€1,800/J', date: '2026-06-01', assignedBroker: 'Gawain MacMilan' },
 ];
 
-const BROKERS = ['Alex Broker', 'Sarah Consultant', 'John Administrator', 'Michael Accountant'];
+const BROKERS = ['Gawain MacMilan', 'Sarah Consultant', 'John Administrator', 'Michael Accountant'];
 
 export function Applications() {
   const { t } = useI18n();

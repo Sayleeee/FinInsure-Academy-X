@@ -7,12 +7,16 @@ import { cn } from "../lib/utils";
 const AUTH_KEY = "fininsure_auth";
 const PASSWORD = "Iq!FinInsure#Academy";
 
+const ALLOWED_EMAIL = "gawain@iqdigi.com";
+
 export function AuthGate({ children }: { children: ReactNode }) {
   const { lang, setLang, t } = useI18n();
   const [authed, setAuthed] = useState(() => sessionStorage.getItem(AUTH_KEY) === "true");
-  const [input, setInput] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
-  const [error, setError] = useState(false);
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   useEffect(() => {
     sessionStorage.setItem(AUTH_KEY, authed.toString());
@@ -20,13 +24,26 @@ export function AuthGate({ children }: { children: ReactNode }) {
 
   if (authed) return <>{children}</>;
 
+  const clearErrors = () => {
+    setUsernameError("");
+    setPasswordError("");
+  };
+
   const handleSubmit = () => {
-    if (input === PASSWORD) {
-      setAuthed(true);
-    } else {
-      setError(true);
-      setTimeout(() => setError(false), 1500);
+    let hasError = false;
+    if (email !== ALLOWED_EMAIL) {
+      setUsernameError(t("Falscher Benutzername", "Incorrect username"));
+      hasError = true;
     }
+    if (password !== PASSWORD) {
+      setPasswordError(t("Falsches Passwort", "Incorrect password"));
+      hasError = true;
+    }
+    if (hasError) {
+      setTimeout(clearErrors, 2000);
+      return;
+    }
+    setAuthed(true);
   };
 
   return (
@@ -76,19 +93,46 @@ export function AuthGate({ children }: { children: ReactNode }) {
               <div className="p-6 space-y-4">
                 <div>
                   <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                    {t("Benutzername", "Username")}
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => { setEmail(e.target.value); clearErrors(); }}
+                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                    placeholder={t("Benutzername eingeben...", "Enter username...")}
+                    autoFocus
+                    className={cn(
+                      "w-full px-3 py-2.5 bg-slate-50 border rounded-lg text-sm outline-none transition-all focus:ring-4",
+                      usernameError
+                        ? "border-red-400 focus:border-red-500 focus:ring-red-500/10"
+                        : "border-slate-200 focus:border-orange-500 focus:ring-orange-500/10"
+                    )}
+                  />
+                  {usernameError && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-xs mt-1.5 font-medium"
+                    >
+                      {usernameError}
+                    </motion.p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
                     {t("Passwort", "Password")}
                   </label>
                   <div className="relative">
                     <input
                       type={show ? "text" : "password"}
-                      value={input}
-                      onChange={(e) => { setInput(e.target.value); setError(false); }}
+                      value={password}
+                      onChange={(e) => { setPassword(e.target.value); clearErrors(); }}
                       onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                       placeholder={t("Passwort eingeben...", "Enter password...")}
-                      autoFocus
                       className={cn(
                         "w-full px-3 py-2.5 pr-10 bg-slate-50 border rounded-lg text-sm outline-none transition-all focus:ring-4",
-                        error
+                        passwordError
                           ? "border-red-400 focus:border-red-500 focus:ring-red-500/10"
                           : "border-slate-200 focus:border-orange-500 focus:ring-orange-500/10"
                       )}
@@ -101,20 +145,20 @@ export function AuthGate({ children }: { children: ReactNode }) {
                       {show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                   </div>
-                  {error && (
+                  {passwordError && (
                     <motion.p
                       initial={{ opacity: 0, y: -4 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-xs mt-1.5 font-medium"
                     >
-                      {t("Falsches Passwort", "Wrong password")}
+                      {passwordError}
                     </motion.p>
                   )}
                 </div>
 
                 <button
                   onClick={handleSubmit}
-                  disabled={!input}
+                  disabled={!email || !password}
                   className="w-full bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm"
                 >
                   <LogIn className="w-4 h-4" />

@@ -23,7 +23,7 @@ interface OnboardingAgency {
 }
 
 const INITIAL_USERS: UserRecord[] = [
-  { id: 'u1', username: 'Alex Broker', role: 'makler', organization: 'artemis Agentur München', lastActive: 'Heute, 14:02', active: true },
+  { id: 'u1', username: 'Gawain MacMilan', role: 'makler', organization: 'artemis Agentur München', lastActive: 'Heute, 14:02', active: true },
   { id: 'u2', username: 'Sarah Consultant', role: 'mitarbeiter', organization: 'artemis Agentur Berlin', lastActive: 'Gestern, 18:30', active: true },
   { id: 'u3', username: 'John Administrator', role: 'administrator', organization: 'artemis Gruppe Holding', lastActive: 'Gerade eben', active: true },
   { id: 'u4', username: 'Michael Accountant', role: 'buchhaltung', organization: 'artemis Gruppe Buchhaltung', lastActive: '03.06.2026', active: true },

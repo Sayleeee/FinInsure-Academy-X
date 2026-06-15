@@ -510,7 +510,7 @@ export function Layout() {
             <div className="relative" ref={profileRef}>
               <div onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center gap-3 border-l border-slate-200 pl-6 cursor-pointer group">
                 <div className="text-right hidden sm:block">
-                  <p className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">Alex Broker</p>
+                  <p className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">Gawain MacMilan</p>
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider font-extrabold">
                     {userRole === 'administrator' ? t('Admin', 'Administrator') : 
                      userRole === 'makler' ? t('Makler', 'Broker') :
@@ -519,7 +519,7 @@ export function Layout() {
                   </p>
                 </div>
                 <div className="h-9 w-9 rounded-full bg-slate-900 flex items-center justify-center shadow-inner">
-                  <span className="text-sm font-bold text-white">AB</span>
+                  <span className="text-sm font-bold text-white">GM</span>
                 </div>
               </div>
               <AnimatePresence>
@@ -559,10 +559,10 @@ export function Layout() {
                           <Settings className="w-4 h-4 text-slate-400" />
                           {t('Einstellungen', 'Settings')}
                        </button>
-                       <button onClick={() => setIsProfileOpen(false)} className="w-full text-left px-4 py-2 mt-1 hover:bg-slate-50 flex items-center gap-2 text-red-600">
-                          <LogOut className="w-4 h-4 text-red-500" />
-                          {t('Abmelden', 'Log out')}
-                       </button>
+                        <button onClick={() => { sessionStorage.removeItem('fininsure_auth'); window.location.reload(); }} className="w-full text-left px-4 py-2 mt-1 hover:bg-slate-50 flex items-center gap-2 text-orange-600">
+                           <LogOut className="w-4 h-4 text-orange-500" />
+                           {t('Abmelden', 'Log out')}
+                        </button>
                     </div>
                   </motion.div>
                 )}
