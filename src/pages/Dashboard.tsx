@@ -80,7 +80,7 @@ export function Dashboard() {
       {/* Welcome & Dashboard Switcher */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">{t('Willkommen zurück, Alex.', 'Welcome back, Alex.')}</h1>
+          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">{t('Willkommen zurück, Gawain.', 'Welcome back, Gawain.')}</h1>
           <p className="text-slate-500 mt-1">{t('Hier ist der aktuelle Überblick deiner Onboarding- und Makleraktivitäten.', 'Here is the current overview of your onboarding and broker activities.')}</p>
         </div>
 
