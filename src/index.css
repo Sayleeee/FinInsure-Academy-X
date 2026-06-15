@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans: "Source Sans 3", Tahoma, sans-serif;
+
+  /* Brand Colors */
+  --color-primary-petrol: #00677F;
+  --color-primary-green: #78BE20;
+  --color-secondary-petrol: #E9EDEF;
+  --color-secondary-green: #F4F8EC;
+  --color-paper-white: #FFFFFF;
+  --color-text-black: #000000;
+
+  /* Overriding default Tailwind colors to match the brand palette */
+  --color-indigo-50: #F4F8EC; /* secondary green background */
+  --color-indigo-100: #E9EDEF; /* secondary petrol background */
+  --color-indigo-200: #d0dce1;
+  --color-indigo-300: #a2bbc4;
+  --color-indigo-400: #7499a7;
+  --color-indigo-500: #46788a;
+  --color-indigo-600: #00677F; /* primary petrol */
+  --color-indigo-700: #00566a;
+  --color-indigo-800: #004555;
+  --color-indigo-900: #00343f;
+  --color-indigo-950: #00222a;
+
+  --color-blue-50: #F4F8EC;
+  --color-blue-100: #E9EDEF;
+  --color-blue-200: #d0dce1;
+  --color-blue-300: #a2bbc4;
+  --color-blue-400: #7499a7;
+  --color-blue-500: #46788a;
+  --color-blue-600: #00677F; /* primary petrol */
+  --color-blue-700: #00566a;
+  --color-blue-800: #004555;
+  --color-blue-900: #00343f;
+
+  --color-emerald-50: #F4F8EC;
+  --color-emerald-100: #F4F8EC;
+  --color-emerald-200: #e2efcd;
+  --color-emerald-300: #c2df9a;
+  --color-emerald-400: #a3ce67;
+  --color-emerald-500: #78BE20; /* primary green */
+  --color-emerald-600: #78BE20;
+  --color-emerald-700: #64a01a;
+  --color-emerald-800: #508015;
+
+  --color-green-50: #F4F8EC; /* secondary green */
+  --color-green-100: #F4F8EC;
+  --color-green-200: #e2efcd;
+  --color-green-300: #c2df9a;
+  --color-green-400: #a3ce67;
+  --color-green-500: #78BE20; /* primary green */
+  --color-green-600: #78BE20;
+  --color-green-700: #64a01a;
+  --color-green-800: #508015;
+
+  --color-orange-50: #F4F8EC;
+  --color-orange-100: #E9EDEF;
+  --color-orange-200: #e2efcd;
+  --color-orange-300: #78BE20; /* accent green */
+  --color-orange-400: #78BE20;
+  --color-orange-500: #00677F; /* primary petrol */
+  --color-orange-600: #00566a;
+  --color-orange-700: #004555;
+
+  --color-slate-950: #001014;
+  --color-slate-900: #00171d; /* very dark petrol for sidebar background */
+  --color-slate-800: #002d38; /* dark petrol border/hover */
+  --color-slate-700: #003a48;
+  --color-slate-600: #004b5c;
+  --color-slate-500: #46788a;
+  --color-slate-400: #7499a7;
+  --color-slate-300: #a2bbc4;
+  --color-slate-200: #E9EDEF; /* secondary petrol background tint */
+  --color-slate-100: #F4F8EC; /* secondary green background tint */
+  --color-slate-50: #FFFFFF;
+}
+
+/* Base style overrides to align with brand guidelines */
+body {
+  font-family: "Source Sans 3", Tahoma, sans-serif;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* Left-align all body text */
+p, span, div, td, th {
+  text-align: left;
+}
