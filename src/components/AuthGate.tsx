@@ -5,7 +5,7 @@ import { useI18n } from "../lib/i18n";
 import { cn } from "../lib/utils";
 
 const AUTH_KEY = "fininsure_auth";
-const PASSWORD = "iq-fininsure-2024";
+const PASSWORD = "Iq!FinInsure#Academy";
 
 export function AuthGate({ children }: { children: ReactNode }) {
   const { lang, setLang, t } = useI18n();
